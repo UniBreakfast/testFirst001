@@ -14,3 +14,5 @@ function numLeft(num, max) {
 }
 
 //////////////////////////////////////////////////////
+
+module.exports = { numLeft }

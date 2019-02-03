@@ -105,3 +105,5 @@ function numWord(num, alias, lang) {
 }
 
 //////////////////////////////////////////////////////
+
+exports.numWord = numWord
