@@ -20,9 +20,9 @@ const countables = {
     day: { '1': 'день',
            '2': 'дня',
            '5': 'дней' },
-    hour: { '1': 'минута',
-              '2': 'минуты',
-              '5': 'минут' },
+    hour: { '1': 'час',
+            '2': 'часа',
+            '5': 'часов' },
     minute: { '1': 'минута',
               '2': 'минуты',
               '5': 'минут' },
@@ -50,43 +50,12 @@ const countables = {
   },
 }
 
-if (numWord(
-  1, 'piece', 'en'
-) !== '1 piece') {
-  throw new Error("FAIL: 1 piece")
-}
-if (numWord(
-  562, 'apple', 'en'
-) !== '562 apples') {
-  throw new Error("FAIL: 562 apples")
-}
-if (numWord(
-  0, 'day', 'ru'
-) !== '0 дней') {
-  throw new Error("FAIL: 0 дней")
-}
-if (numWord(
-  1, 'day', 'ru'
-) !== '1 день') {
-  throw new Error("FAIL: 1 день")
-}
-if (numWord(
-  2, 'day', 'ua'
-) !== '2 дні') {
-  throw new Error("FAIL: 2 дні")
-}
-if (numWord(
-  1471, 'day', 'ru'
-) !== '1471 день') {
-  throw new Error("FAIL: 1471 день")
-}
-if (numWord(
-  41, 'second', 'ua'
-) !== '41 секунда') {
-  throw new Error("FAIL: 41 секунда")
+// s
+function numberWord(num, alias, lang) {
+  return numberAndWord(num, alias, lang).join(' ')
 }
 
-function numWord(num, alias, lang) {
+function numberAndWord(num, alias, lang) {
   const n = Math.abs(num),
         words = !countables[lang] ? {'1':alias, '2':alias+'s'} :
           countables[lang][alias] || countables['en'][alias] ||
@@ -94,16 +63,17 @@ function numWord(num, alias, lang) {
   lang = countables[lang]? countables[lang].schemaLike : 'en'
   switch (lang) {
     case 'ru':
-      if (!n%10 || n%10>4 || n%100>10 && n%100<15) return num+' '+words['5']
-      if (n%10-1) return num+' '+words['2']
-      return num+' '+words['1']
+      if (!(n%10) || n%10>4 || n%100>10 && n%100<15)
+        return [num, words['5']]
+      if (n%10-1) return [num, words['2']]
+      return [num, words['1']]
     case 'en':
     default:
-      if (n-1) return num+' '+words['2']
-      return num+' '+words['1']
+      if (n-1) return [num, words['2']]
+      return [num, words['1']]
   }
 }
 
 //////////////////////////////////////////////////////
 
-exports.numWord = numWord
+module.exports = { numberWord, numberAndWord }
