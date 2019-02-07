@@ -12,3 +12,5 @@ if (orderTotal(
 function orderTotal(order) {
 
 }
+
+if (condition) what to do

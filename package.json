@@ -1,0 +1,23 @@
+{
+  "name": "testfirst001",
+  "version": "1.0.0",
+  "description": "inspired by MPJ's video, developing a correctly worded countables in different languages",
+  "main": "importing.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UniBreakfast/testFirst001.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UniBreakfast/testFirst001/issues"
+  },
+  "homepage": "https://github.com/UniBreakfast/testFirst001#readme",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
