@@ -30,6 +30,10 @@ it('TIA term more than 2 times smaller than etap',
   ()=> expect(questPrice(5, 3, 0, 7)).toBe(12)
 )
 
+it('TIA term more than 2 times smaller than etap',
+  ()=> expect(questPrice(2, 2, 0, 1)).toBe(12)
+)
+
 
 
 
