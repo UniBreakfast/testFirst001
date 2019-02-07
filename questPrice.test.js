@@ -1,4 +1,4 @@
-const { questPrice } = require('./questPrice')
+const questPrice = require('./questPrice')
 
 
 
