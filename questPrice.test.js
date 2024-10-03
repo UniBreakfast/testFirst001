@@ -1,7 +1,5 @@
 const questPrice = require('./questPrice')
 
-
-
 it('multiplies difficulty and term', ()=> {
   expect(questPrice(6, 4)).toBe(24)
 })
@@ -33,10 +31,6 @@ it('TIA term more than 2 times smaller than etap',
 it('TIA term more than 2 times smaller than etap',
   ()=> expect(questPrice(2, 2, 0, 1)).toBe(12)
 )
-
-
-
-
 
 // questPrice(diff, term, fora, etap)
 var date = (new Date()).getMinutes()
